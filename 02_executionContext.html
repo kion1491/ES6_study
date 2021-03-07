@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        Execution Context - 함수를 실행할 때 필요한 환경정보를 담은 객체
+     -->
+
+     <script>
+        var a = 1;
+        function testFunc(){
+            console.log(a+"11");
+            function testFuncInner(){
+                console.log(a+"22");
+                var a = 3;
+            }
+
+            testFuncInner();
+
+            console.log(a+"33")
+        }
+
+        testFunc();
+        console.log(a+"44")
+     </script>
+
+    <!-- 
+        call stack - 현재 어떤 함수가 동작하고 있는지,
+                        다음에 어떤 함수가 호출되어야 하는지
+                        등을 제어하는 자료구조 
+    -->
+
+    <!-- 
+        Lexical Environment (environmentRecord) - 현재문맥의 식별자(hoisting)
+        outerEnvironmentReference - 현재 문맥에 관련있는 외부 식별자 정보
+        SCOPE CHAIN - 변수의 유효범위
+        변수의 할당값을 inner - > outer -> 전역 순서로 찾아나선다.
+        
+     -->
+
+</body>
+</html>
