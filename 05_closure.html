@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 클로져란?
+    // 컨텍스트 A에서 선언한 변수 a를 참조하는 내부함수 B를 A의 외부로 전달할 경우,
+    // A가 종료된 이후에도 a가 사라지지 않는 현상
+
+    // 클로져를 통해서, '지역 변수가 함수 종료 후에도 사라지지 않게 할 수 있다'
+
+    // var outer = function () {
+    //   var a = 1;
+    //   var inner = function () {
+    //     console.log(++a);
+    //   }
+    //   inner();
+    // }
+    // outer();
+
+    var outer = function () {
+      var a = 1;
+      var inner = function () {
+        // console.log(++a);
+        return ++a;
+      }
+      return inner;
+    }
+    var outer2 = outer();
+    console.log(outer2());
+    console.log(outer2());
+  </script>
+</body>
+
+</html>
